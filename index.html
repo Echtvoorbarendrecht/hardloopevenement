@@ -12,13 +12,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* EVB geel (exact uit jouw screenshot) */
+      /* EVB geel (exact) */
       --evb-yellow:#EAAF4A;
       --evb-yellow-dark:#CE9A41;
+      --evb-yellow-rgb: 234,175,74;
 
       --bg:#f4f5f7;
       --card:#ffffff;
@@ -30,7 +31,7 @@
       --radius:18px;
       --shadow: 0 18px 50px rgba(0,0,0,.10);
 
-      --focus-ring: rgba(234, 175, 74, .28);
+      --focus-ring: rgba(var(--evb-yellow-rgb), .28);
     }
 
     *{ box-sizing:border-box; }
@@ -48,6 +49,7 @@
       padding: 0 16px;
     }
 
+    /* Hero */
     .hero{
       border-radius: 22px;
       overflow: hidden;
@@ -59,38 +61,49 @@
     .hero-top{
       background: var(--evb-yellow);
       color: var(--black);
-      padding: 14px 18px;
+      padding: 16px 18px;
       display:flex;
       gap: 14px;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
     }
 
-    .hero-top strong{
+    /* Groter, ook op laptop */
+    .leftline{
+      display:flex;
+      align-items: baseline;
+      gap: 8px;
+      font-weight: 900;
+      letter-spacing: .1px;
+      font-size: 18px;
+      line-height: 1.15;
+    }
+    .leftline strong{ font-weight: 900; }
+    .leftline .date{
       font-weight: 800;
-      letter-spacing: .2px;
+      opacity: .92;
+      font-size: 16px;
     }
 
     .scribble{
       font-family: Kalam, cursive;
       font-weight: 700;
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1.05;
+      letter-spacing: .1px;
     }
 
     .hero-body{
       padding: 22px 18px 18px;
     }
-
     .hero-title{
       margin:0;
-      font-size: 34px;
+      font-size: 36px;
       line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: -.5px;
+      font-weight: 900;
+      letter-spacing: -.6px;
     }
-
     .hero-sub{
       margin: 10px 0 16px;
       color: rgba(255,255,255,.82);
@@ -104,7 +117,6 @@
       gap: 10px;
       margin-top: 8px;
     }
-
     .badge{
       display:inline-flex;
       gap: 8px;
@@ -114,14 +126,14 @@
       background: rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.16);
       color: rgba(255,255,255,.92);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-
     .badge b{ color:#fff; }
 
+    /* Grid */
     .grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
@@ -131,8 +143,29 @@
 
     @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
-      .scribble{ font-size: 22px; }
       .hero-title{ font-size: 30px; }
+      .scribble{ font-size: 22px; }
+      .leftline{ font-size: 18px; }
+      .leftline .date{ font-size: 15px; }
+    }
+
+    @media (max-width: 520px){
+      .hero-top{
+        padding: 16px 16px;
+        gap: 10px;
+      }
+      .leftline{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        font-size: 20px;
+      }
+      .leftline .date{
+        font-size: 14px;
+        font-weight: 800;
+        opacity: .95;
+      }
+      .scribble{ font-size: 20px; }
     }
 
     @media (max-width: 420px){
@@ -140,6 +173,7 @@
       .hero-sub{ font-size: 14px; }
     }
 
+    /* Cards */
     .card{
       background: var(--card);
       border-radius: var(--radius);
@@ -161,7 +195,6 @@
       font-size: 16px;
       line-height: 1.55;
     }
-
     li{ margin: 8px 0; color: var(--text); }
 
     .muted{
@@ -175,13 +208,14 @@
       display:inline-block;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(234, 175, 74, .18);
-      border: 1px solid rgba(234, 175, 74, .35);
+      background: rgba(var(--evb-yellow-rgb), .18);
+      border: 1px solid rgba(var(--evb-yellow-rgb), .35);
       color: #6a5200;
       font-weight: 900;
       margin-left: 6px;
     }
 
+    /* Form */
     form{ margin-top: 6px; }
 
     label{
@@ -189,7 +223,7 @@
       font-size: 13px;
       color: var(--muted);
       margin: 12px 0 6px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     input{
@@ -230,7 +264,7 @@
 
     .price{
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -.3px;
     }
 
@@ -260,13 +294,12 @@
       border-radius: 14px;
       background: var(--evb-yellow);
       color: var(--black);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 900;
       letter-spacing: .2px;
       box-shadow: 0 10px 22px rgba(0,0,0,.08);
       transition: transform .08s ease, filter .15s ease;
     }
-
     .btn:hover{ filter: brightness(1.02); }
     .btn:active{ transform: translateY(1px); }
     .btn:focus-visible{
@@ -285,14 +318,12 @@
       background: #fff;
       border: 2px solid var(--evb-yellow);
       color: var(--black);
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 900;
     }
-
     .btn-secondary:hover{
-      background: rgba(234, 175, 74, .12);
+      background: rgba(var(--evb-yellow-rgb), .12);
     }
-
     .btn-secondary:focus-visible{
       outline: 3px solid rgba(0,0,0,.35);
       outline-offset: 2px;
@@ -318,7 +349,10 @@
 
     <section class="hero">
       <div class="hero-top">
-        <div><strong>Loop mee met EVB</strong>. Zaterdag 28 februari 2026</div>
+        <div class="leftline">
+          <strong>Loop mee met EVB</strong>
+          <span class="date">Zaterdag 28 februari 2026</span>
+        </div>
         <div class="scribble">Steun De Kleine Duiker</div>
       </div>
 
