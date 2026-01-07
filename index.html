@@ -16,10 +16,10 @@
 
   <style>
     :root{
-      /* EVB geel (exact) */
+      /* EVB geel exact */
       --evb-yellow:#EAAF4A;
       --evb-yellow-dark:#CE9A41;
-      --evb-yellow-rgb: 234,175,74;
+      --evb-yellow-rgb:234,175,74;
 
       --bg:#f4f5f7;
       --card:#ffffff;
@@ -59,7 +59,7 @@
     }
 
     .hero-top{
-      background: var(--evb-yellow);
+      background: var(--evb-yellow) !important;
       color: var(--black);
       padding: 16px 18px;
       display:flex;
@@ -69,34 +69,37 @@
       flex-wrap: wrap;
     }
 
-    /* Groter, ook op laptop */
+    /* Alleen links groter op laptop */
     .leftline{
       display:flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 10px;
       font-weight: 900;
+      font-size: 22px;
+      line-height: 1.1;
       letter-spacing: .1px;
-      font-size: 18px;
-      line-height: 1.15;
     }
     .leftline strong{ font-weight: 900; }
     .leftline .date{
+      font-size: 18px;
       font-weight: 800;
       opacity: .92;
-      font-size: 16px;
     }
 
+    /* Rechtertekst niet groter maken */
     .scribble{
       font-family: Kalam, cursive;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1.05;
       letter-spacing: .1px;
+      white-space: nowrap;
     }
 
     .hero-body{
       padding: 22px 18px 18px;
     }
+
     .hero-title{
       margin:0;
       font-size: 36px;
@@ -104,6 +107,7 @@
       font-weight: 900;
       letter-spacing: -.6px;
     }
+
     .hero-sub{
       margin: 10px 0 16px;
       color: rgba(255,255,255,.82);
@@ -117,6 +121,7 @@
       gap: 10px;
       margin-top: 8px;
     }
+
     .badge{
       display:inline-flex;
       gap: 8px;
@@ -144,9 +149,9 @@
     @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
       .hero-title{ font-size: 30px; }
-      .scribble{ font-size: 22px; }
-      .leftline{ font-size: 18px; }
-      .leftline .date{ font-size: 15px; }
+      .leftline{ font-size: 20px; }
+      .leftline .date{ font-size: 16px; }
+      .scribble{ font-size: 24px; }
     }
 
     @media (max-width: 520px){
@@ -162,10 +167,11 @@
       }
       .leftline .date{
         font-size: 14px;
-        font-weight: 800;
-        opacity: .95;
       }
-      .scribble{ font-size: 20px; }
+      .scribble{
+        font-size: 20px;
+        white-space: normal;
+      }
     }
 
     @media (max-width: 420px){
@@ -195,6 +201,7 @@
       font-size: 16px;
       line-height: 1.55;
     }
+
     li{ margin: 8px 0; color: var(--text); }
 
     .muted{
@@ -208,8 +215,8 @@
       display:inline-block;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(var(--evb-yellow-rgb), .18);
-      border: 1px solid rgba(var(--evb-yellow-rgb), .35);
+      background: rgba(var(--evb-yellow-rgb), .18) !important;
+      border: 1px solid rgba(var(--evb-yellow-rgb), .35) !important;
       color: #6a5200;
       font-weight: 900;
       margin-left: 6px;
@@ -239,8 +246,8 @@
     }
 
     input:focus{
-      border-color: var(--evb-yellow-dark);
-      box-shadow: 0 0 0 4px var(--focus-ring);
+      border-color: var(--evb-yellow-dark) !important;
+      box-shadow: 0 0 0 4px var(--focus-ring) !important;
     }
 
     .pricebox{
@@ -292,7 +299,7 @@
       cursor:pointer;
       padding: 14px 14px;
       border-radius: 14px;
-      background: var(--evb-yellow);
+      background: var(--evb-yellow) !important;
       color: var(--black);
       font-size: 16px;
       font-weight: 900;
@@ -300,6 +307,7 @@
       box-shadow: 0 10px 22px rgba(0,0,0,.08);
       transition: transform .08s ease, filter .15s ease;
     }
+
     .btn:hover{ filter: brightness(1.02); }
     .btn:active{ transform: translateY(1px); }
     .btn:focus-visible{
@@ -316,14 +324,16 @@
       padding: 14px 14px;
       border-radius: 14px;
       background: #fff;
-      border: 2px solid var(--evb-yellow);
+      border: 2px solid var(--evb-yellow) !important;
       color: var(--black);
       font-size: 16px;
       font-weight: 900;
     }
+
     .btn-secondary:hover{
-      background: rgba(var(--evb-yellow-rgb), .12);
+      background: rgba(var(--evb-yellow-rgb), .12) !important;
     }
+
     .btn-secondary:focus-visible{
       outline: 3px solid rgba(0,0,0,.35);
       outline-offset: 2px;
@@ -433,7 +443,6 @@
   <script>
     const EVENT_DATE = new Date("2026-02-28T00:00:00+01:00");
 
-    // Placeholder Stripe Payment Links. Vervang later door echte buy.stripe.com links.
     const STRIPE_LINK_U18   = "https://buy.stripe.com/test_u18_placeholder";
     const STRIPE_LINK_ADULT = "https://buy.stripe.com/test_adult_placeholder";
 
