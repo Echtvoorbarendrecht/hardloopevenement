@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loop mee met EVB. Steun de kleine duiker!. Zaterdag 28 februari 2026</title>
+  <title>Loop mee met EVB. Zaterdag 28 februari 2026</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,7 @@
 
     .hero-top{
       background:var(--yellow);
+      color:var(--black); /* zwart tekst ipv wit */
       padding:16px 18px;
       display:flex;
       align-items:center;
@@ -51,8 +52,7 @@
       gap:14px;
     }
 
-    .leftline{font-weight:900;font-size:22px;}
-
+    .leftline{font-weight:900;font-size:22px; line-height:1.1;}
     .date{display:block;font-size:16px;font-weight:800;}
 
     .logo-evb{
@@ -63,11 +63,9 @@
     .hero-body{padding:18px;}
 
     .hero-title{margin:8px 0;font-size:34px;font-weight:900;}
-
     .hero-sub{margin:6px 0 14px;font-size:15px;color:rgba(255,255,255,.85);}
 
     .badges{display:flex;gap:10px;flex-wrap:wrap;}
-
     .badge{
       padding:10px 12px;border-radius:999px;
       background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
@@ -86,10 +84,8 @@
     }
 
     h2{margin:0 0 12px;font-size:20px;}
-
     ul{margin:10px 0 0 18px;font-size:16px;line-height:1.55;}
     li{margin:8px 0;}
-
     .muted{margin-top:10px;font-size:13px;color:var(--muted);}
 
     label{display:block;margin:12px 0 6px;font-size:13px;font-weight:700;color:var(--muted);}
@@ -125,8 +121,8 @@
 
 <section class="hero">
   <div class="hero-top">
-    <div>
-      <strong>Loop mee met EVB</strong>
+    <div class="leftline">
+      <strong>Loop mee met EVB. Steun De Kleine Duiker</strong>
       <span class="date">Zaterdag 28 februari 2026</span>
     </div>
     <img src="https://i.postimg.cc/MTCxnL5S/EVB-Logo-2.jpg" alt="EVB Logo" class="logo-evb">
