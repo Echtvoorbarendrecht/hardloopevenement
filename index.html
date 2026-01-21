@@ -183,7 +183,29 @@
       font-weight:900;
       cursor:pointer;
       min-height:44px;
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      color:var(--black);
     }
+
+    .btn-secondary{
+      margin-top:10px;
+      width:100%;
+      padding:14px;
+      background:#fff;
+      border-radius:14px;
+      font-size:16px;
+      font-weight:900;
+      cursor:pointer;
+      min-height:44px;
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      color:var(--black);
+      border:2px solid var(--yellow);
+    }
+    .btn-secondary:hover{background:rgba(var(--yellow-rgb),.12);}
 
     .error{
       display:none;
@@ -194,6 +216,12 @@
       border:1px solid #ffd2d2;
       color:#a10000;
       font-size:13px;
+    }
+
+    .divider{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:18px 0;
     }
 
     /* Mobile proof */
@@ -227,7 +255,10 @@
 
   <div class="hero-body">
     <h1 class="hero-title">5 km wandelen. 5 km hardlopen. 10 km hardlopen.</h1>
-    <p class="hero-sub">Met je deelname steun je <b>De Kleine Duiker</b>. Het inschrijfgeld wordt volledig gedoneerd.</p>
+    <p class="hero-sub">
+      Met je deelname steun je <b>De Kleine Duiker</b>. Het inschrijfgeld wordt volledig gedoneerd.
+      <br>Wil je niet meedoen, maar wel steunen. Doneer dan direct via de knop hieronder.
+    </p>
     <div class="badges">
       <div class="badge">📍 Barendrecht. De Kleine Duiker</div>
       <div class="badge">⏱ Hardlopen 13:00. Wandelen 13:15</div>
@@ -252,7 +283,7 @@
       <li>Na de finish ontvang je een klein aandenken</li>
       <li>Bevestiging per mail met extra informatie</li>
     </ul>
-    <p class="muted">Leeftijd wordt bepaald op 28 februari 2026.<br>Onder 18 jaar € 2,50. 18+ € 5,00.</p>
+    <p class="muted">Leeftijd wordt bepaald op 28 februari 2026.<br>Onder 18 jaar € 2,50. 18+ € 5,00. Het inschrijfgeld wordt volledig gedoneerd.</p>
   </div>
 
   <div class="card">
@@ -260,16 +291,31 @@
     <form id="regForm" novalidate>
       <label for="dob">Geboortedatum</label>
       <input id="dob" type="date" required />
+
       <div class="pricebox">
         <div>
-          <div class="muted">Jouw inschrijfgeld</div>
+          <div class="muted">Jouw inschrijfgeld (wordt volledig gedoneerd)</div>
           <div class="price" id="priceText">—</div>
           <div class="muted" id="ageText">Vul je geboortedatum in.</div>
         </div>
         <div class="muted">Je gaat daarna door naar Stripe om te betalen.</div>
       </div>
+
       <div class="error" id="errorBox"></div>
       <button class="btn" type="submit">Verder naar betaling</button>
+
+      <hr class="divider">
+
+      <h2 style="margin:0 0 10px;font-size:18px;">Alleen doneren (niet meelopen)</h2>
+      <p class="muted" style="margin:0 0 10px;">
+        Je hoeft niet mee te wandelen of hardlopen. Je kunt ook direct doneren. Alles wordt volledig gedoneerd aan De Kleine Duiker.
+      </p>
+
+      <a class="btn-secondary" href="https://buy.stripe.com/28E14ogpa4b62dwcE70Ba02">
+        Doneer (zonder inschrijving)
+      </a>
+
+      <div class="muted" style="margin-top:8px;">Je wordt doorgestuurd naar Stripe.</div>
     </form>
   </div>
 </section>
@@ -312,6 +358,8 @@
 
   document.getElementById("regForm").addEventListener("submit",e=>{
     e.preventDefault();
+    errorBox.style.display="none";
+
     if(!dobInput.value){
       errorBox.textContent="Vul je geboortedatum in.";
       errorBox.style.display="block";
